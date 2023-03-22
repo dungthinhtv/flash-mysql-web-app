@@ -39,8 +39,13 @@ def find(arr , id):
 
 
 @app.route('/')
-def hello_world():
+def home():
   return render_template('home.html', jobs=JOBS)
+
+@app.route('/contact-us')
+def contact_us():
+  return render_template('application_form.html')
+
 
 
 @app.route('/api/jobs')
@@ -55,6 +60,16 @@ def show_job(id):
   
   return render_template('jobpage.html', 
                          job=job)
+  
+@app.route("/api/job/<id>")
+def show_job_json(id):
+  # job = load_job_from_db(id)
+  
+  job = find(JOBS , int(id))
+  if not job:
+    return "Not Found", 404
+  
+  return jsonify(job)
 
   
 
