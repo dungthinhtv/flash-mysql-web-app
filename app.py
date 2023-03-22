@@ -1,5 +1,9 @@
 from flask import Flask, render_template, jsonify
 
+import os
+
+APP_NAME = os.getenv('APP_NAME')
+
 app = Flask(__name__)
 
 JOBS = [
@@ -26,7 +30,7 @@ JOBS = [
 
 @app.route('/')
 def hello_world():
-  return render_template('home.html', jobs=JOBS)
+  return render_template('home.html', jobs=JOBS, app_name=APP_NAME)
 
 
 @app.route('/jobs')
