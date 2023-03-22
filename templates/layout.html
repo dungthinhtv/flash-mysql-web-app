@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{% block title %}{% endblock %} - My Webpage</title>
+    {% include 'bootstrap.html' %}
+
+    
+  </head>
+  <body>
+    {% include ('nav.html') %}
+    <div style="height: 56px"></div>
+    {% include ('banner.html') %}
+
+    {% block body %}
+    {% endblock %}
+    
+    <div class="container">
+      {% include ('footer.html') %}
+    </div>
+  </body>
+</html>

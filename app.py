@@ -7,6 +7,10 @@ APP_NAME = os.getenv('APP_NAME')
 
 app = Flask(__name__)
 
+@app.context_processor
+def inject_app_name():
+    return dict(app_name=APP_NAME)
+
 JOBS = [
   {
     'id': 1,
@@ -36,7 +40,7 @@ def find(arr , id):
 
 @app.route('/')
 def hello_world():
-  return render_template('home.html', jobs=JOBS, app_name=APP_NAME)
+  return render_template('home.html', jobs=JOBS)
 
 
 @app.route('/api/jobs')

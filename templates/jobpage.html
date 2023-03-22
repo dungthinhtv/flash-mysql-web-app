@@ -1,18 +1,20 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>{{job['title']}} - Jovian Careers</title>
-    {% include 'bootstrap.html' %}
-  </head>
-  <body>
-    {% include 'nav.html' %}
-    {% include 'banner.html' %}
-    <div class="container">
-      <h1 class="text-center mt-2 mb-4">
-        Jovian Careers
-      </h1>
-      
+{% extends "layout.html" %} {% block title %}{{job['title']}}{% endblock %} {%
+block body %}
+
+<div class="container">
+  <h1 class="text-center mt-2 mb-4">{{job['title']}}s</h1>
+  <div class="row" style="margin-bottom: 32px">
+    <div class="col-md-6">
+      <p class="lead">
+        {{job['location']}}
+      </p>
     </div>
-    {% include 'footer.html' %}
-  </body>
-</html>
+    <div class="d-none d-md-block col-md-6">
+      <img
+        src="/static/people.jpeg"
+        style="height: 320px; border-radius: 4px"
+      />
+    </div>
+  </div>
+</div>
+{% endblock %}
