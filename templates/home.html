@@ -22,11 +22,7 @@
   <body>
     {% include ('nav.html') %}
     <div style="height: 56px"></div>
-    <img
-      class="img-fluid"
-      id="banner"
-      src="/static/banner.jpeg"
-    />
+    {% include ('banner.html') %}
     <div class="container">
       <h1 class="text-center mt-2 mb-4">Dune Careers</h1>
       <div class="row" style="margin-bottom: 32px">
@@ -52,27 +48,9 @@
       <div>
 
         {% for job in jobs %}
-        <div
-          class="border-bottom row"
-          style="margin-bottom: 16px; padding-bottom: 8px"
-        >
-          <div class="col-10">
-            <h4 style="color: rgb(120, 120, 120); margin-bottom: 4px">
-              {{job['title']}}
-            </h4>
-            <div><b>Location:</b> {{job['location']}}</div>
 
-            <div><b>Salary:</b> {{job['salary']}}</div>
-          </div>
-          <div class="col-2 padding-right:16px">
-            <a
-              href="mailto:dungthinhvn@gmail.com"
-              type="button"
-              class="btn btn-outline-primary float-right align-middle"
-              >Apply</a
-            >
-          </div>
-        </div>
+          {% include ('jobitem.html') %}
+        
         {% endfor %}
 
         
