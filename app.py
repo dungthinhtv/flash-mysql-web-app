@@ -45,7 +45,7 @@ def list_jobs():
 
 @app.route("/job/<id>")
 def show_job(id):  
-  job = find(JOBS , id)
+  job = find(JOBS , int(id))
   if not job:
     return "Not Found", 404
   
